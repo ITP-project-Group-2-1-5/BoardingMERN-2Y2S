@@ -6,7 +6,7 @@ import DataGridTable from '../../Components/Grid/DataGrid';
 import configs from '../../config.js';
 
 const defaultTheme = createTheme();
-
+//
 export default function Booking() {
     const token = sessionStorage.getItem('token');
     const loguser = localStorage.getItem('user');
