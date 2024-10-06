@@ -120,11 +120,16 @@ function Feedback() {
             });
             const feedbacksWithId = response.data.map((feedback, index) => ({
                 id: index + 1,
-                ...feedback
+                ...feedback,
+
+                // calculate avg rating
+                avgRating: ((feedback.rating + feedback.rating2 + feedback.rating3) / 3).toFixed(1)
 
 
             }));
 
+             //sort feedbacks
+             feedbacksWithId.sort((a, b) => b.avgRating - a.avgRating);
 
 
             setFeedbacks(feedbacksWithId);
