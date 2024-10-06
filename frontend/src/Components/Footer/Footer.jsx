@@ -103,7 +103,7 @@ const Footer = () => {
                         </IconButton>
                     </div>
                     <div className={classes.logoContainer}>
-                        {/* <img src={Logo} alt="Company Logo" className={classes.logo} /> */}
+                        {/* <img src={Logo} alt="uniboarding finder" className={classes.logo} /> */}
                     </div>
                 </Grid>
             </Grid>
