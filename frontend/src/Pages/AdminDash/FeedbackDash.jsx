@@ -94,7 +94,7 @@ const FeedbackDash = () => {
     });
 
     const excelExport = () => {
-        exportToExcel(newData, 'SupportTicketReport.xlsx');
+        exportToExcel(newData, 'Feedback-Report.xlsx');
     }
 
     return (
