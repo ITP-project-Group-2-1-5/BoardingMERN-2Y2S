@@ -1,6 +1,6 @@
 # 🏠 Boarding places Management System
 
-The **Boarding Management System** is a full-stack MERN application designed to streamline the management of boarding properties for university students and property owners. This platform simplifies the process for owners and renters, from adding and editing property details to browsing and filtering listings.
+This **Boarding Management System** is a full-stack MERN application designed to streamline the management of boarding properties for university students and property owners. This platform simplifies the process for owners and renters, from adding and editing property details to browsing and filtering listings.
 
 ![MERN Stack](https://img.shields.io/badge/Stack-MERN-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-16.x-brightgreen)
