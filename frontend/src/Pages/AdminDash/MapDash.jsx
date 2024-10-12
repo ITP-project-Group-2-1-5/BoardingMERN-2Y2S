@@ -53,26 +53,39 @@ const MapDash = () => {
     };
 
     const handleDelete = (id) => {
-        axios.delete(`${configs.apiUrl}/maps/maps/${id}`, { headers: { 'Authorization': `Bearer ${token}` } }).then(() => {
-            fetchDetails();
-        }).catch(() => {
-            Swal.fire({
-                title: "Error!",
-                text: "Not Delete",
-                icon: 'error',
-                confirmButtonText: "OK",
-                type: "success"
-            })
-        })
+    axios.delete(`${configs.apiUrl}/maps/maps/${id}`, { 
+        headers: { 'Authorization': `Bearer ${token}` } 
+    })
+    .then(() => {
+        // Fetch updated data after deletion
+        fetchDetails();
+        
+        // Show success confirmation message
+        Swal.fire({
+            title: "Deleted!",
+            text: "The data has been successfully deleted.",
+            icon: 'success',
+            confirmButtonText: "OK"
+        });
+    })
+    .catch((error) => {
+        // Show error message
+        Swal.fire({
+            title: "Error!",
+            text: "The data could not be deleted.",
+            icon: 'error',
+            confirmButtonText: "OK"
+        });
+    });
+};
 
-    };
 
     const columns = [
-        { field: '_id', headerName: 'ID', width: 200 },
-        { field: 'name', headerName: 'Location Name', width: 160 },
-        { field: 'lat', headerName: 'Latitude', width: 160 },
-        { field: 'lng', headerName: 'Longitude', width: 160 },
-        { field: 'area', headerName: 'Campus Area', width: 160 },
+       
+        { field: 'name', headerName: 'Boarding Place Name', width: 270 },
+        { field: 'lat', headerName: 'Latitude', width: 170 },
+        { field: 'lng', headerName: 'Longitude', width: 170 },
+        { field: 'area', headerName: 'Campus Area', width: 340 },
         {
             field: 'actions',
             headerName: 'Actions',
@@ -104,10 +117,10 @@ const MapDash = () => {
                         </Typography>
                         <div style={{ flexGrow: 1 }}></div>
                         <Button variant="contained" color="primary" component={NavLink} to="/addMap" sx={{ marginRight: '10px' }}>
-                            Add New Map
+                            Add New Boarding Place on Map
                         </Button>
                         <Button variant="contained" color="error" onClick={excelExport}>
-                            Report
+                            Download Report
                         </Button>
                     </Toolbar>
                 </AppBar>

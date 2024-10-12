@@ -92,14 +92,24 @@ const AddMap = () => {
             errors.name = 'Location Name is required';
             isValid = false;
         }
+        else if (newObject.name.length > 60) {
+            errors.name = 'Name cannot exceed 60 characters';
+            isValid = false;
+        }
 
         if (!newObject.lat) {
             errors.lat = 'Latitude is required';
+            isValid = false;
+        }else if (!/^\d{1,3}\.\d{1,7}$/.test(newObject.lat)) {
+            errors.lat = 'Latitudenp is invalid.Format: XX.XXXXXX (2-3 digits before decimal, 1-7 digits after decimal)';
             isValid = false;
         }
         
         if (!newObject.lng) {
             errors.lng = 'Longitude Size is required';
+            isValid = false;
+        }else if (!/^\d{1,3}\.\d{1,7}$/.test(newObject.lng)) {
+            errors.lng = 'Longitude is invalid.Format: XX.XXXXXX (2-3 digits before decimal, 1-7 digits after decimal)';
             isValid = false;
         }
 
@@ -189,15 +199,33 @@ const AddMap = () => {
                             />
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField
-                                label="Campus Area"
-                                fullWidth
-                                placeholder='Area of Map'
+
+                        <FormControl fullWidth>
+                            <InputLabel id="Campus Area">Select University</InputLabel>
+                            <Select
+                                labelId="Campus Area"
                                 value={newObject.area}
+                                label="Campus Area"
+                                placeholder='Select University'
                                 onChange={(e) => setNewObject({ ...newObject, area: e.target.value })}
-                                error={!!errors.area}
+                                error={!!errors.type}
                                 helperText={errors.area}
-                            />
+                            >
+                                <MenuItem value="SLIIT University">SLIIT University</MenuItem>
+                                <MenuItem value="Japura University">Japura University</MenuItem>
+                                <MenuItem value="Ruhuna University">Ruhuna University</MenuItem>
+                                <MenuItem value="Sabaragamu University">Sabaragamu University</MenuItem>
+                                <MenuItem value="Horizon University">Horizon University</MenuItem>
+                                <MenuItem value="CINEC University">CINEC University</MenuItem>
+                                <MenuItem value="Jaffna University">Jaffna University</MenuItem>
+                                <MenuItem value="Jaffna University">Jaffna University</MenuItem>
+                                <MenuItem value="Peradeniya University">Peradeniya University</MenuItem>
+                                <MenuItem value="Colombo University">Colombo University</MenuItem>
+                                <MenuItem value="Rajarata University">Rajarata University</MenuItem>
+                                
+                                
+                            </Select>
+                        </FormControl>
                         </Grid>
                     </Grid>
                 </div>
